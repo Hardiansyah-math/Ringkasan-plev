@@ -1,34 +1,815 @@
+```html
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Konsep PLSV: Ringkasan Interaktif Kelas VIII</title>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<style>
-:root{--paper:#f8fbff;--grid:#d9e8f6;--ink:#1b2a4e;--mut:#55658a;--red:#e5484d;--hl:#ffe36e;--hl2:#fff4b8;--grn:#1f8a5f;--grn-l:#dff5ea;--blu:#2f6fed;--blu-l:#e4edff;--bad:#c93a3f;--bad-l:#ffe3e3;--card:#fff;--line:#c4d6ea;color-scheme:light;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#0f1a2e;--grid:#1a2a47;--ink:#e8eefc;--mut:#9fb0d4;--red:#ff7075;--hl:#6b5b00;--hl2:#4a4000;--grn:#52d29c;--grn-l:#12372a;--blu:#7fa6ff;--blu-l:#1a2a52;--bad:#ff8a8e;--bad-l:#43181b;--card:#16243d;--line:#2c4166;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#0f1a2e;--grid:#1a2a47;--ink:#e8eefc;--mut:#9fb0d4;--red:#ff7075;--hl:#6b5b00;--hl2:#4a4000;--grn:#52d29c;--grn-l:#12372a;--bad:#ff8a8e;--bad-l:#43181b;--blu:#7fa6ff;--blu-l:#1a2a52;--card:#16243d;--line:#2c4166;color-scheme:dark}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
-body{margin:0;background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font:400 16px/1.65 'Lexend',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:30}
-body::after{content:"";position:fixed;top:0;bottom:0;left:30px;width:2px;background:var(--red);opacity:.45;pointer-events:none}
-.wrap{max-width:760px;margin:0 auto;padding:0 18px 48px 50px}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--card);border-bottom:2px solid var(--ink);margin:0 -18px 0 -50px;padding:0 18px 0 50px}
-.nav-in{max-width:760px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
-.nav-in::-webkit-scrollbar{display:none}
-nav button{flex:none;font:600 13px/1 'Lexend',system-ui,sans-serif;color:var(--ink);background:transparent;border:2px solid transparent;border-radius:999px;padding:8px 12px;cursor:pointer}
-nav button.on{background:var(--hl);border-color:var(--ink)}
-#bar{height:4px;width:0;background:var(--red)}
-button:focus-visible,input:focus-visible{outline:3px solid var(--blu);outline-offset:2px}
-.hero{padding:44px 0 20px}
-.hero h1{font-size:clamp(30px,7vw,46px);line-height:1.12;margin:0 0 12px;letter-spacing:-.02em}
-.hero p{margin:0 0 18px;color:var(--mut);max-width:52ch}
-.who{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.who span{font-size:13px;background:var(--card);border:2px solid var(--ink);border-radius:8px 8px 8px 2px;padding:4px 10px}
-.sheet{background:var(--card);border:2px solid var(--ink);border-radius:16px 16px 16px 4px;box-shadow:5px 5px 0 var(--ink);padding:18px}
-.big{font:700 clamp(32px,9vw,52px)/1.2 'Lexend',sans-serif;letter-spacing:.02em;margin:4px 0 12px}
-.big i,.eq i{font-family:Georgia,'Times New Roman',serif;font-weight:400}
-.hand{font:600 22px/1.2 'Caveat','Segoe Print',cursive;color:var(--red)}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsep PLSV - SMPN 1 Terusan Nunyai</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#090d16',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- KaTeX for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <!-- Canvas Confetti for Quiz success -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styling for scale visualizer animation */
+        .scale-beam {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center center;
+        }
+        .scale-pan {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-navy-900/95 backdrop-blur border-b border-slate-700/50 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-gold-400 flex items-center justify-center font-bold text-slate-900 text-xl shadow-md">
+                    <i class="fa-solid me-0 fa-square-root-variable"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm sm:text-base leading-tight tracking-wide">SMP NEGERI 1 TERUSAN NUNYAI</h1>
+                    <p class="text-xs text-slate-400">Matematika Kelas VIII • Fase D</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#pengantar" class="hover:text-gold-400 transition-colors">Kontekstual</a>
+                <a href="#komponen" class="hover:text-gold-400 transition-colors">Komponen PLSV</a>
+                <a href="#simulasi" class="hover:text-gold-400 transition-colors">Simulasi Timbangan</a>
+                <a href="#lab" class="hover:text-gold-400 transition-colors">Lab Variabel</a>
+                <a href="#kuis" class="hover:text-gold-400 transition-colors">Mini Kuis</a>
+            </nav>
+            <div class="text-right hidden sm:block">
+                <span class="block text-xs text-slate-400">Penyusun:</span>
+                <span class="text-xs font-semibold text-gold-400">Hardiansyah, S.Pd.</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-navy-900 via-navy-800 to-slate-900 text-white pt-12 pb-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-semibold mb-6">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Modul Pembelajaran Interaktif PLSV</span>
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+                Konsep Persamaan Linear <br class="hidden sm:inline"/>Satu Variabel <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-gold-400">(PLSV)</span>
+            </h2>
+            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+                Pahami landasan aljabar, konsep kesamaan, variabel, dan penyelesaian matematika secara interaktif, intuitif, dan menyenangkan!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-xs sm:text-sm">
+                <div class="bg-slate-800/80 border border-slate-700 px-4 py-2.5 rounded-xl flex items-center space-x-2">
+                    <i class="fa-solid fa-school text-gold-400"></i>
+                    <span>SMPN 1 Terusan Nunyai</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700 px-4 py-2.5 rounded-xl flex items-center space-x-2">
+                    <i class="fa-solid fa-user-tie text-emerald-400"></i>
+                    <span>Hardiansyah, S.Pd.</span>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700 px-4 py-2.5 rounded-xl flex items-center space-x-2">
+                    <i class="fa-solid fa-book-open text-blue-400"></i>
+                    <span>Kelas VIII / Semester 1</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 -mt-10 relative z-20 flex-grow mb-16 space-y-12">
+
+        <!-- 1. PENGANTAR KONTEKSTUAL -->
+        <section id="pengantar" class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cart-shopping text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-navy-900">1. Pengantar Kontekstual: PLSV di Sekolah</h3>
+                    <p class="text-xs text-slate-500">Bagaimana matematika terhubung dengan kegiatan sehari-hari?</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="space-y-4 text-slate-600 text-sm leading-relaxed">
+                    <p>
+                        Bayangkan kamu sedang berada di <span class="font-semibold text-navy-800">Kantin SMPN 1 Terusan Nunyai</span>. Kamu membeli <span class="font-semibold text-emerald-700">2 buah buku tulis yang sama</span> dan 1 buah pulpen seharga <span class="font-semibold text-slate-800">Rp3.000</span>. Total uang yang harus kamu bayar adalah <span class="font-semibold text-slate-800">Rp11.000</span>.
+                    </p>
+                    <p class="bg-amber-50 border-l-4 border-gold-500 p-3 rounded-r-lg text-slate-700">
+                        <strong>Pertanyaan Matematika:</strong> Berapakah harga 1 buah buku tulis tersebut?
+                    </p>
+                    <p>
+                        Dalam matematika, harga 1 buku yang belum diketahui harganya dapat kita simbolkan dengan huruf, misalnya <span class="px-2 py-1 bg-slate-200 font-mono text-navy-900 rounded font-bold">x</span>.
+                    </p>
+                </div>
+                <div class="bg-gradient-to-br from-slate-900 to-navy-900 text-white p-6 rounded-2xl shadow-md border border-slate-700 space-y-4">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-gold-400">Pemodelan Matematika</div>
+                    <div class="space-y-2 font-mono text-sm sm:text-base">
+                        <div class="flex justify-between items-center bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+                            <span>2 Buku + 1 Pulpen</span>
+                            <span class="text-emerald-400 font-bold">= Rp11.000</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+                            <span>2(x) + 3.000</span>
+                            <span class="text-emerald-400 font-bold">= 11.000</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 italic">
+                        Bentuk <span class="text-gold-400 font-bold font-mono">2x + 3000 = 11000</span> inilah yang dinamakan <strong>Persamaan Linear Satu Variabel</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. KOMPONEN UTAMA PLSV (INTERAKSI TAB/CARD) -->
+        <section id="komponen" class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-lg bg-navy-800 text-gold-400 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-layer-group text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-navy-900">2. Komponen & Unsur Pembentuk PLSV</h3>
+                    <p class="text-xs text-slate-500">Klik tab di bawah untuk mempelajari setiap unsur penting</p>
+                </div>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap gap-2 border-b border-slate-200 pb-3 mb-6">
+                <button onclick="switchTab('kalimat')" id="tab-kalimat" class="tab-btn active-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-navy-900 text-white shadow">
+                    Kalimat Terbuka vs Tertutup
+                </button>
+                <button onclick="switchTab('variabel')" id="tab-variabel" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    Variabel (Peubah)
+                </button>
+                <button onclick="switchTab('koefisien')" id="tab-koefisien" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    Koefisien & Konstanta
+                </button>
+                <button onclick="switchTab('kesamaan')" id="tab-kesamaan" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    Tanda Kesamaan (=)
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="content-kalimat" class="tab-content block space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-xl border border-red-200 bg-red-50/50">
+                        <span class="inline-block px-2.5 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-md mb-2">Kalimat Tertutup (Pernyataan)</span>
+                        <h4 class="font-bold text-slate-800 text-sm mb-2">Sudah Dapat Dipastikan Benar/Salah</h4>
+                        <p class="text-xs text-slate-600 mb-3">Kalimat yang nilai kebenarannya (BENAR atau SALAH) sudah pasti dan tidak berubah.</p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside">
+                            <li>"Ibukota Indonesia adalah Nusantara." <span class="text-emerald-600 font-semibold">(BENAR)</span></li>
+                            <li>"$5 + 3 = 10$" <span class="text-red-600 font-semibold">(SALAH)</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-5 rounded-xl border border-emerald-200 bg-emerald-50/50">
+                        <span class="inline-block px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-md mb-2">Kalimat Terbuka</span>
+                        <h4 class="font-bold text-slate-800 text-sm mb-2">Belum Dipastikan Nilai Kebenarannya</h4>
+                        <p class="text-xs text-slate-600 mb-3">Kalimat yang memuat variabel sehingga belum tahu benar atau salah sebelum variabel diganti angka.</p>
+                        <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside">
+                            <li>"$x + 4 = 9$" <span class="text-slate-500">(Nilai kebenaran tergantung nilai $x$)</span></li>
+                            <li>"Kota $Y$ terletak di provinsi Lampung."</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-variabel" class="tab-content hidden space-y-4">
+                <div class="p-5 rounded-xl border border-blue-200 bg-blue-50/50">
+                    <h4 class="font-bold text-navy-900 text-base mb-2">Apa itu Variabel?</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+                        <strong>Variabel (Peubah)</strong> adalah lambang pengganti suatu bilangan yang belum diketahui nilainya dengan jelas. Biasanya disimbolkan dengan huruf kecil seperti <code class="bg-white px-2 py-0.5 rounded border text-red-600 font-bold">x</code>, <code class="bg-white px-2 py-0.5 rounded border text-red-600 font-bold">y</code>, <code class="bg-white px-2 py-0.5 rounded border text-red-600 font-bold">a</code>, atau <code class="bg-white px-2 py-0.5 rounded border text-red-600 font-bold">n</code>.
+                    </p>
+                    <div class="bg-white p-3 rounded-lg border border-blue-100 text-xs font-mono text-slate-700">
+                        Contoh: Pada persamaan <span class="text-red-600 font-bold">3y + 5 = 20</span>, huruf <span class="text-red-600 font-bold">y</span> adalah Variabel.
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-koefisien" class="tab-content hidden space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-xl border border-slate-200 bg-slate-100">
+                        <h4 class="font-bold text-navy-900 text-sm mb-2">1. Koefisien</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Bilangan yang berada di depan variabel dan mengalikan variabel tersebut.
+                        </p>
+                        <div class="mt-3 bg-white p-2.5 rounded border text-xs font-mono">
+                            Pada <span class="text-emerald-600 font-bold">4</span>x = 12 $\rightarrow$ <span class="text-emerald-600 font-bold">4</span> adalah Koefisien dari x.
+                        </div>
+                    </div>
+                    <div class="p-5 rounded-xl border border-slate-200 bg-slate-100">
+                        <h4 class="font-bold text-navy-900 text-sm mb-2">2. Konstanta</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Suku berupa bilangan tetap yang berdiri sendiri tanpa berdiri bersama variabel.
+                        </p>
+                        <div class="mt-3 bg-white p-2.5 rounded border text-xs font-mono">
+                            Pada 2x + <span class="text-gold-500 font-bold">7</span> = 15 $\rightarrow$ <span class="text-gold-500 font-bold">7</span> dan <span class="text-gold-500 font-bold">15</span> adalah Konstanta.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content-kesamaan" class="tab-content hidden space-y-4">
+                <div class="p-5 rounded-xl border border-amber-200 bg-amber-50/50">
+                    <h4 class="font-bold text-navy-900 text-base mb-2">Tanda Kesamaan (=) & Pangkat Variabel</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-3">
+                        Syarat mutlak suatu bentuk disebut **Persamaan Linear Satu Variabel (PLSV)**:
+                    </p>
+                    <ul class="text-xs sm:text-sm text-slate-700 space-y-2 list-disc list-inside">
+                        <li>Menggunakan tanda hubung **Sama Dengan** (<code class="font-bold text-navy-900">=</code>). Jika menggunakan $>$, $<$, $\le$, $\ge$ maka disebut <i>Pertidaksamaan</i>.</li>
+                        <li>Hanya memiliki **1 Jenis Variabel**.</li>
+                        <li>Variabelnya harus **Berpangkat Satu** (Linear). Misal $x^1$ (ditulis $x$). Jika $x^2$ dinamakan Persamaan Kuadrat.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SIMULASI TIMBANGAN LENGAN INTERAKTIF -->
+        <section id="simulasi" class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-scale-balanced text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-navy-900">3. Simulasi Visual Timbangan Lengan Interaktif</h3>
+                    <p class="text-xs text-slate-500">Prinsip dasar kesamaan: Apa yang dilakukan di ruas kiri harus sama dengan ruas kanan!</p>
+                </div>
+            </div>
+
+            <!-- Interaktif Interactive Balance Board -->
+            <div class="bg-slate-900 rounded-2xl p-6 text-white shadow-inner">
+                <div class="text-center mb-4">
+                    <p class="text-xs text-gold-400 font-semibold uppercase tracking-wider">Model Persamaan</p>
+                    <div id="scale-equation" class="text-2xl font-bold font-mono text-emerald-400 mt-1">
+                        x + 2 = 5
+                    </div>
+                    <p id="scale-status" class="text-xs mt-1 text-slate-300">Status: <span class="text-emerald-400 font-semibold">SEIMBANG (Sama Dengan =)</span></p>
+                </div>
+
+                <!-- SVG Visual Timbangan -->
+                <div class="relative w-full max-w-lg mx-auto h-52 flex flex-col items-center justify-center my-4">
+                    <!-- Base Stand -->
+                    <div class="absolute bottom-0 w-8 h-20 bg-slate-700 rounded-t-lg"></div>
+                    <div class="absolute bottom-0 w-32 h-4 bg-slate-600 rounded-lg"></div>
+                    <div class="absolute bottom-16 w-6 h-6 bg-gold-500 rounded-full z-10 border-2 border-slate-900"></div>
+
+                    <!-- Rotating Beam -->
+                    <div id="scale-beam" class="scale-beam absolute top-16 w-full max-w-md h-3 bg-slate-500 rounded-full flex justify-between items-center px-2">
+                        
+                        <!-- Left Pan Assembly -->
+                        <div id="pan-left" class="scale-pan relative flex flex-col items-center -ml-4" style="transform: translateY(40px);">
+                            <!-- String -->
+                            <div class="w-0.5 h-16 bg-slate-400"></div>
+                            <!-- Pan Base -->
+                            <div class="w-28 sm:w-36 h-3 bg-gold-500 rounded-b-xl shadow-md flex justify-center items-end pb-1 border-t border-gold-300"></div>
+                            <!-- Weights Container Left -->
+                            <div id="weights-left" class="absolute bottom-3 flex items-end justify-center gap-1 flex-wrap max-w-[120px]">
+                                <!-- Dynamic JS weights -->
+                            </div>
+                            <span class="text-[10px] text-slate-300 font-mono mt-1">Ruas Kiri</span>
+                        </div>
+
+                        <!-- Right Pan Assembly -->
+                        <div id="pan-right" class="scale-pan relative flex flex-col items-center -mr-4" style="transform: translateY(40px);">
+                            <!-- String -->
+                            <div class="w-0.5 h-16 bg-slate-400"></div>
+                            <!-- Pan Base -->
+                            <div class="w-28 sm:w-36 h-3 bg-gold-500 rounded-b-xl shadow-md flex justify-center items-end pb-1 border-t border-gold-300"></div>
+                            <!-- Weights Container Right -->
+                            <div id="weights-right" class="absolute bottom-3 flex items-end justify-center gap-1 flex-wrap max-w-[120px]">
+                                <!-- Dynamic JS weights -->
+                            </div>
+                            <span class="text-[10px] text-slate-300 font-mono mt-1">Ruas Kanan</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-4 border-t border-slate-800">
+                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-slate-300 block mb-2">Atur Beban Ruas Kiri:</span>
+                        <div class="flex items-center justify-between text-xs">
+                            <span>Kotak Rahasia (<span class="text-emerald-400 font-bold">x</span> = <span id="val-x-real">3</span>)</span>
+                            <span class="font-mono bg-slate-700 px-2 py-0.5 rounded text-emerald-300 font-bold">1 Kotak</span>
+                        </div>
+                        <div class="flex items-center justify-between text-xs mt-2">
+                            <span>Anak Timbangan (1kg):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="adjustLeft(-1)" class="w-6 h-6 bg-slate-700 hover:bg-slate-600 text-white rounded font-bold">-</button>
+                                <span id="left-const-val" class="font-mono w-4 text-center">2</span>
+                                <button onclick="adjustLeft(1)" class="w-6 h-6 bg-slate-700 hover:bg-slate-600 text-white rounded font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+                        <span class="text-xs font-bold text-slate-300 block mb-2">Atur Beban Ruas Kanan:</span>
+                        <div class="flex items-center justify-between text-xs mt-3">
+                            <span>Anak Timbangan (1kg):</span>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="adjustRight(-1)" class="w-6 h-6 bg-slate-700 hover:bg-slate-600 text-white rounded font-bold">-</button>
+                                <span id="right-const-val" class="font-mono w-4 text-center">5</span>
+                                <button onclick="adjustRight(1)" class="w-6 h-6 bg-slate-700 hover:bg-slate-600 text-white rounded font-bold">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button onclick="resetScale()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded-lg transition-colors">
+                        <i class="fa-solid fa-rotate-left mr-1"></i> Reset Timbangan
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. LABORATORIUM EKSPLORASI VARIABEL -->
+        <section id="lab" class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-lg bg-gold-500 text-navy-900 flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-flask text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-navy-900">4. Laboratorium Uji Nilai Variabel</h3>
+                    <p class="text-xs text-slate-500">Mencari Penyelesaian (Solusi) dari Persamaan Linear</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-6">
+                <div class="text-center">
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Persamaan Uji</p>
+                    <p class="text-2xl sm:text-3xl font-extrabold text-navy-900 font-mono mt-1">
+                        3x - 2 = 10
+                    </p>
+                    <p class="text-xs text-slate-600 mt-1">Geser penggeser (slider) nilai <span class="font-bold text-red-600">x</span> di bawah untuk menemukan nilai yang membuat persamaan bernilai BENAR.</p>
+                </div>
+
+                <div class="max-w-md mx-auto space-y-3">
+                    <div class="flex justify-between items-center text-sm font-semibold">
+                        <span>Pilih Nilai x:</span>
+                        <span id="slider-x-val" class="text-lg font-mono text-emerald-600 font-bold bg-emerald-100 px-3 py-0.5 rounded-full">1</span>
+                    </div>
+                    <input type="range" id="xSlider" min="1" max="8" value="1" step="1" oninput="updateLab()" class="w-full h-2 bg-slate-300 rounded-lg appearance-none cursor-pointer accent-emerald-600">
+                    <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+                        <span>x = 1</span>
+                        <span>x = 4</span>
+                        <span>x = 8</span>
+                    </div>
+                </div>
+
+                <!-- Subtitusi Visual Box -->
+                <div class="max-w-lg mx-auto bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3">
+                    <div class="text-xs font-bold text-slate-400 uppercase">Proses Substitusi:</div>
+                    <div class="font-mono text-sm sm:text-base flex items-center justify-center space-x-2 text-slate-800">
+                        <span>3(<span id="sub-x-val" class="text-red-600 font-bold">1</span>) - 2</span>
+                        <span>=</span>
+                        <span id="sub-result-val" class="font-bold">1</span>
+                    </div>
+                    
+                    <!-- Result Status Badge -->
+                    <div id="lab-feedback" class="p-3 rounded-lg text-center text-xs font-bold transition-all bg-red-100 text-red-700">
+                        SALAH: 1 ≠ 10 (Nilai x = 1 BUKAN penyelesaian)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. MINI KUIS INTERAKTIF -->
+        <section id="kuis" class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10 rounded-lg bg-red-500 text-white flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-circle-question text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-navy-900">5. Mini Kuis Konsep PLSV</h3>
+                    <p class="text-xs text-slate-500">Uji pemahamanmu dengan 4 pertanyaan cepat!</p>
+                </div>
+            </div>
+
+            <div id="quiz-container" class="space-y-6">
+                <!-- Dynamic Quiz Card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-4">
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-semibold">
+                        <span id="quiz-progress">Soal 1 dari 4</span>
+                        <span id="quiz-score-badge" class="bg-slate-100 px-2.5 py-1 rounded-full text-slate-700">Skor: 0</span>
+                    </div>
+                    <h4 id="quiz-question" class="text-base font-bold text-navy-900 leading-snug">
+                        Loading soal...
+                    </h4>
+                    <div id="quiz-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                        <!-- Options injected via JS -->
+                    </div>
+                    <div id="quiz-feedback" class="hidden p-3 rounded-lg text-xs font-semibold"></div>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <button id="prev-btn" onclick="prevQuestion()" disabled class="px-4 py-2 bg-slate-200 text-slate-400 rounded-xl text-xs font-bold transition">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Sebelumnya
+                    </button>
+                    <button id="next-btn" onclick="nextQuestion()" disabled class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition">
+                        Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Result Modal/Screen (Hidden initially) -->
+            <div id="quiz-result" class="hidden text-center py-8 space-y-4">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-navy-900">Selamat! Kuis Selesai</h4>
+                <p class="text-sm text-slate-600">Skor Akhir Kamu:</p>
+                <div id="final-score" class="text-4xl font-extrabold text-emerald-600 font-mono">100 / 100</div>
+                <p id="final-message" class="text-xs text-slate-500 max-w-sm mx-auto">Luar biasa! Kamu sudah sangat memahami konsep dasar PLSV.</p>
+                <button onclick="restartQuiz()" class="mt-4 px-6 py-2.5 bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold rounded-xl transition shadow-lg">
+                    <i class="fa-solid fa-rotate-right mr-1"></i> Ulangi Kuis
+                </button>
+            </div>
+        </section>
+
+        <!-- 6. RANGKUMAN RINGKAS -->
+        <section class="bg-gradient-to-r from-navy-900 to-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-xl">
+            <h3 class="text-lg font-bold text-gold-400 mb-4 flex items-center">
+                <i class="fa-solid fa-bookmark mr-2"></i> Rangkuman Inti Materi
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs leading-relaxed text-slate-300">
+                <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700">
+                    <strong class="text-white block mb-1">1. Definisi PLSV</strong>
+                    Kalimat terbuka yang dihubungkan oleh tanda sama dengan (<code class="text-gold-400">=</code>) dan hanya mempunyai 1 variabel berpangkat 1.
+                </div>
+                <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700">
+                    <strong class="text-white block mb-1">2. Bentuk Umum</strong>
+                    <code class="text-emerald-400 font-bold block my-1 text-sm font-mono">ax + b = c</code>
+                    Dengan $a \neq 0$, $x$ adalah variabel, $a$ koefisien, $b$ dan $c$ konstanta.
+                </div>
+                <div class="bg-slate-800/60 p-3.5 rounded-xl border border-slate-700">
+                    <strong class="text-white block mb-1">3. Prinsip Keseimbangan</strong>
+                    Nilai kedua ruas tetap sama jika kedua ruas ditambah, dikurang, dikali, atau dibagi dengan bilangan yang sama.
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Sekolah -->
+    <footer class="bg-navy-950 text-slate-400 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-3">
+            <div class="flex justify-center items-center space-x-2 font-semibold text-slate-200">
+                <span>SMP Negeri 1 Terusan Nunyai</span>
+                <span>•</span>
+                <span>Lampung Tengah</span>
+            </div>
+            <p>Disusun oleh: <span class="text-gold-400 font-medium">Hardiansyah, S.Pd.</span> (Guru Matematika)</p>
+            <p class="text-[11px] text-slate-500">© 2026 Modul Digital Interaktif Matematika Fase D / Kelas VIII.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. TAB SWITCHING LOGIC ---
+        function switchTab(tabName) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+            // Reset button states
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-navy-900', 'text-white', 'shadow');
+                btn.classList.add('bg-slate-100', 'text-slate-600');
+            });
+
+            // Activate chosen tab
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            document.getElementById('content-' + tabName).classList.add('block');
+
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+            activeBtn.classList.add('bg-navy-900', 'text-white', 'shadow');
+        }
+
+        // --- 2. TIMBANGAN INTERAKTIF LOGIC ---
+        let scaleState = {
+            xVal: 3, // Hidden value of box x
+            leftConst: 2,
+            rightConst: 5
+        };
+
+        function updateScaleUI() {
+            const leftTotal = scaleState.xVal + scaleState.leftConst;
+            const rightTotal = scaleState.rightConst;
+
+            // Update text displays
+            document.getElementById('scale-equation').innerText = `x + ${scaleState.leftConst} = ${scaleState.rightConst}`;
+            document.getElementById('left-const-val').innerText = scaleState.leftConst;
+            document.getElementById('right-const-val').innerText = scaleState.rightConst;
+
+            // Render Weights Ruas Kiri
+            const leftContainer = document.getElementById('weights-left');
+            leftContainer.innerHTML = '';
+            
+            // Render Variable Box X
+            const boxX = document.createElement('div');
+            boxX.className = 'w-9 h-9 bg-emerald-500 text-white font-bold font-mono text-xs flex items-center justify-center rounded-lg border-2 border-emerald-300 shadow-sm';
+            boxX.innerText = 'X';
+            boxX.title = 'Kotak Rahasia X (Nilai = 3)';
+            leftContainer.appendChild(boxX);
+
+            // Render Constants Left
+            for(let i=0; i < scaleState.leftConst; i++) {
+                const w = document.createElement('div');
+                w.className = 'w-6 h-6 bg-gold-400 text-navy-900 font-bold text-[10px] flex items-center justify-center rounded-full border border-gold-200 shadow-sm';
+                w.innerText = '1';
+                leftContainer.appendChild(w);
+            }
+
+            // Render Weights Ruas Kanan
+            const rightContainer = document.getElementById('weights-right');
+            rightContainer.innerHTML = '';
+            for(let i=0; i < scaleState.rightConst; i++) {
+                const w = document.createElement('div');
+                w.className = 'w-6 h-6 bg-gold-400 text-navy-900 font-bold text-[10px] flex items-center justify-center rounded-full border border-gold-200 shadow-sm';
+                w.innerText = '1';
+                rightContainer.appendChild(w);
+            }
+
+            // Calculate tilt angle
+            const beam = document.getElementById('scale-beam');
+            const panLeft = document.getElementById('pan-left');
+            const panRight = document.getElementById('pan-right');
+            const statusText = document.getElementById('scale-status');
+
+            const diff = leftTotal - rightTotal;
+            let angle = diff * 4; // 4 deg per unit diff
+            if(angle > 16) angle = 16;
+            if(angle < -16) angle = -16;
+
+            beam.style.transform = `rotate(${angle}deg)`;
+            
+            // Counter rotate pans so they remain vertical
+            panLeft.style.transform = `translateY(40px) rotate(${-angle}deg)`;
+            panRight.style.transform = `translateY(40px) rotate(${-angle}deg)`;
+
+            if(diff === 0) {
+                statusText.innerHTML = 'Status: <span class="text-emerald-400 font-semibold">SEIMBANG (Sama Dengan =)</span>';
+            } else if(diff > 0) {
+                statusText.innerHTML = 'Status: <span class="text-red-400 font-semibold">TIDAK SEIMBANG (Ruas Kiri Lebih Berat >)</span>';
+            } else {
+                statusText.innerHTML = 'Status: <span class="text-red-400 font-semibold">TIDAK SEIMBANG (Ruas Kanan Lebih Berat <)</span>';
+            }
+        }
+
+        function adjustLeft(amount) {
+            if(scaleState.leftConst + amount >= 0 && scaleState.leftConst + amount <= 8) {
+                scaleState.leftConst += amount;
+                updateScaleUI();
+            }
+        }
+
+        function adjustRight(amount) {
+            if(scaleState.rightConst + amount >= 0 && scaleState.rightConst + amount <= 12) {
+                scaleState.rightConst += amount;
+                updateScaleUI();
+            }
+        }
+
+        function resetScale() {
+            scaleState.leftConst = 2;
+            scaleState.rightConst = 5;
+            updateScaleUI();
+        }
+
+        // --- 3. LAB EKSPLORASI LOGIC ---
+        function updateLab() {
+            const x = parseInt(document.getElementById('xSlider').value);
+            document.getElementById('slider-x-val').innerText = x;
+            document.getElementById('sub-x-val').innerText = x;
+            
+            const result = 3 * x - 2;
+            document.getElementById('sub-result-val').innerText = result;
+
+            const feedback = document.getElementById('lab-feedback');
+            if(result === 10) {
+                feedback.className = 'p-3 rounded-lg text-center text-xs font-bold transition-all bg-emerald-100 text-emerald-800 border border-emerald-300';
+                feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-1 text-emerald-600"></i> BENAR! $3(${x}) - 2 = 10$. Jadi, $x = ${x}$ adalah PENYELESAIAN dari persamaan tersebut.`;
+                // Render MathJax/KaTeX inside dynamically updated content
+                if (window.renderMathInElement) renderMathInElement(feedback);
+            } else {
+                feedback.className = 'p-3 rounded-lg text-center text-xs font-bold transition-all bg-red-100 text-red-700 border border-red-200';
+                feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1 text-red-500"></i> SALAH: ${result} ≠ 10. Nilai $x = ${x}$ BUKAN penyelesaian.`;
+                if (window.renderMathInElement) renderMathInElement(feedback);
+            }
+        }
+
+        // --- 4. MINI KUIS LOGIC ---
+        const quizData = [
+            {
+                question: "Manakah di antara bentuk berikut yang merupakan Kalimat Terbuka?",
+                options: [
+                    "5 + 3 = 8",
+                    "x + 7 = 12",
+                    "Jumlah sudut segitiga adalah 180°",
+                    "20 dibagi 4 sama dengan 5"
+                ],
+                correct: 1,
+                explanation: "x + 7 = 12 memuat variabel x yang nilainya belum pasti, sehingga dinamakan kalimat terbuka."
+            },
+            {
+                question: "Pada persamaan 5x - 8 = 12, manakah yang bertindak sebagai Koefisien?",
+                options: [
+                    "x",
+                    "-8",
+                    "5",
+                    "12"
+                ],
+                correct: 2,
+                explanation: "5 adalah bilangan yang mengalikan variabel x, sehingga 5 disebut Koefisien."
+            },
+            {
+                question: "Manakah di antara persamaan berikut yang BUKAN merupakan Persamaan Linear Satu Variabel (PLSV)?",
+                options: [
+                    "2a + 6 = 10",
+                    "x² + 3 = 12",
+                    "3y = 15",
+                    "4m - 2 = m + 7"
+                ],
+                correct: 1,
+                explanation: "x² + 3 = 12 memiliki variabel berpangkat 2 (persamaan kuadrat), bukan berpangkat 1."
+            },
+            {
+                question: "Nilai x yang memenuhi persamaan x + 5 = 11 adalah...",
+                options: [
+                    "x = 5",
+                    "x = 6",
+                    "x = 7",
+                    "x = 16"
+                ],
+                correct: 1,
+                explanation: "Substitusi x = 6 menghasilkan 6 + 5 = 11 (BENAR)."
+            }
+        ];
+
+        let currentQ = 0;
+        let score = 0;
+        let answered = false;
+
+        function loadQuizQuestion() {
+            answered = false;
+            const q = quizData[currentQ];
+            
+            document.getElementById('quiz-progress').innerText = `Soal ${currentQ + 1} dari ${quizData.length}`;
+            document.getElementById('quiz-question').innerText = q.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'w-full text-left p-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition flex items-center justify-between';
+                btn.innerHTML = `<span>${String.fromCharCode(65 + idx)}. ${opt}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
+                btn.onclick = () => selectOption(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.add('hidden');
+            
+            document.getElementById('next-btn').disabled = true;
+            document.getElementById('next-btn').classList.add('opacity-50', 'cursor-not-allowed');
+        }
+
+        function selectOption(idx, btnElement) {
+            if(answered) return;
+            answered = true;
+
+            const q = quizData[currentQ];
+            const optionsBtns = document.getElementById('quiz-options').children;
+            const feedback = document.getElementById('quiz-feedback');
+
+            if(idx === q.correct) {
+                score += 25;
+                document.getElementById('quiz-score-badge').innerText = `Skor: ${score}`;
+                btnElement.className = 'w-full text-left p-3 rounded-xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 text-xs font-bold flex items-center justify-between';
+                btnElement.querySelector('i').className = 'fa-solid fa-circle-check text-emerald-600 text-base';
+                
+                feedback.className = 'p-3 rounded-lg text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200';
+                feedback.innerHTML = `<i class="fa-solid fa-check mr-1"></i> <strong>Tepat Sekali!</strong> ${q.explanation}`;
+            } else {
+                btnElement.className = 'w-full text-left p-3 rounded-xl border-2 border-red-500 bg-red-50 text-red-900 text-xs font-bold flex items-center justify-between';
+                btnElement.querySelector('i').className = 'fa-solid fa-circle-xmark text-red-500 text-base';
+
+                // Highlight correct option
+                optionsBtns[q.correct].className = 'w-full text-left p-3 rounded-xl border border-emerald-500 bg-emerald-50 text-emerald-800 text-xs font-bold flex items-center justify-between';
+                
+                feedback.className = 'p-3 rounded-lg text-xs font-semibold bg-red-100 text-red-800 border border-red-200';
+                feedback.innerHTML = `<i class="fa-solid fa-xmark mr-1"></i> <strong>Kurang Tepat.</strong> ${q.explanation}`;
+            }
+
+            feedback.classList.remove('hidden');
+
+            document.getElementById('next-btn').disabled = false;
+            document.getElementById('next-btn').classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function nextQuestion() {
+            if(currentQ < quizData.length - 1) {
+                currentQ++;
+                loadQuizQuestion();
+                document.getElementById('prev-btn').disabled = false;
+                document.getElementById('prev-btn').classList.remove('opacity-50');
+            } else {
+                // Show final result
+                document.getElementById('quiz-container').classList.add('hidden');
+                const resultScreen = document.getElementById('quiz-result');
+                resultScreen.classList.remove('hidden');
+                
+                document.getElementById('final-score').innerText = `${score} / 100`;
+                
+                if(score >= 75) {
+                    confetti({
+                        particleCount: 100,
+                        spread: 70,
+                        origin: { y: 0.6 }
+                    });
+                }
+            }
+        }
+
+        function prevQuestion() {
+            if(currentQ > 0) {
+                currentQ--;
+                loadQuizQuestion();
+                if(currentQ === 0) {
+                    document.getElementById('prev-btn').disabled = true;
+                    document.getElementById('prev-btn').classList.add('opacity-50');
+                }
+            }
+        }
+
+        function restartQuiz() {
+            currentQ = 0;
+            score = 0;
+            document.getElementById('quiz-score-badge').innerText = `Skor: 0`;
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-container').classList.remove('hidden');
+            loadQuizQuestion();
+        }
+
+        // Initialize on Load
+        window.onload = function() {
+            updateScaleUI();
+            updateLab();
+            loadQuizQuestion();
+        }
+    </script>
+</body>
+</html>
+```
